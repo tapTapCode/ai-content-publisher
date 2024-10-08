@@ -9,6 +9,9 @@ export class LLMService {
     });
   }
 
+  // TODO: Add retry logic with exponential backoff. Right now if OpenAI 
+  // flakes out, the job just fails. Also should probably track costs 
+  // per generation - GPT-4 is pricey at scale.
   async generateBlogPost(params: {
     topic: string;
     keywords: string[];
